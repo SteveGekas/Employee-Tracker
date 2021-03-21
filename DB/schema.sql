@@ -1,4 +1,4 @@
-DROP DATABASE IF EXISTS Emplyee_TrackerDB;
+DROP DATABASE IF EXISTS Employee_TrackerDB;
 
 CREATE DATABASE Employee_TrackerDB;
 
@@ -30,12 +30,14 @@ CREATE TABLE employee (
     PRIMARY KEY (id)
 );
 
+USE Employee_TrackerDB;
+
 ALTER TABLE role
 ADD FOREIGN KEY (department_id) REFERENCES
-department (id);
+employee (id);
 
 ALTER TABLE employee
 ADD FOREIGN KEY (role_id) REFERENCES
-department (id),
+employee (id),
 ADD FOREIGN KEY (manager_id) REFERENCES
-department (id);
+employee (id);
